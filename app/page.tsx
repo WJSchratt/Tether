@@ -3,39 +3,45 @@ import Link from "next/link";
 
 export default function Landing() {
   return (
-    <main>
-      <header className="border-b">
-        <div className="mx-auto max-w-6xl px-4 flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="size-6 rounded-lg bg-blue-600" />
-            <span className="font-semibold">Tether</span>
-          </div>
-          <nav className="flex items-center gap-3">
-            <Link href="/commons" className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium border border-neutral-200 hover:bg-neutral-50">
-              Enter Commons
-            </Link>
-            <Link href="/login" className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium border border-neutral-200 hover:bg-neutral-50">
-              Log in
-            </Link>
-            <Link href="/signup" className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700">
-              Sign up
-            </Link>
-          </nav>
-        </div>
-      </header>
-
-      <section className="mx-auto max-w-6xl px-4 py-20 text-center">
-        <h1 className="text-5xl font-bold tracking-tight">
-          Community, but <span className="text-blue-600">smaller</span>.
+    <main className="bg-neutral-950 min-h-screen">
+      <section className="mx-auto max-w-2xl px-4 pt-32 text-center">
+        {/* Hero */}
+        <h1 className="text-5xl font-bold tracking-tight text-neutral-100">
+          Community is <span className="text-blue-500">Everywhere</span>
         </h1>
-        <p className="mt-6 text-lg text-neutral-600 max-w-2xl mx-auto">
-          Join local chat rooms tailored to your interests — never more than a few dozen people.
+
+        <p className="mt-6 text-lg text-neutral-400">
+          In a world where everyone  is isolated, find connection
         </p>
+
+        {/* Search bar */}
+        <div className="mt-10 flex justify-center">
+          <input
+            type="text"
+            placeholder="Where can you find community?"
+            className="w-full max-w-md px-4 py-3 rounded-l-xl bg-neutral-800 text-neutral-100 placeholder-neutral-500 focus:outline-none "
+          />
+          <button className="px-5 py-3 bg-blue-600 text-white rounded-r-xl font-medium hover:bg-blue-500 transition">
+            Search
+          </button>
+        </div>
+
+        {/* Action buttons */}
         <div className="mt-8 flex justify-center gap-4">
-          <Link href="/commons" className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium border border-neutral-200 hover:bg-neutral-50">
+          <Link
+            href="/commons"
+            className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-medium
+                       border border-neutral-800 text-neutral-200
+                       hover:bg-neutral-900 hover:border-neutral-700 transition"
+          >
             Explore Commons
           </Link>
-          <Link href="/signup" className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700">
+
+          <Link
+            href="/signup"
+            className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-medium
+                       bg-blue-600 text-white hover:bg-blue-500 transition"
+          >
             Create account
           </Link>
         </div>

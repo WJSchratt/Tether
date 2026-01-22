@@ -1,11 +1,19 @@
 import Link from "next/link";
 
 export default function CommonsPage() {
-  // demo data
-  const rooms = [
+  // Demo data
+  const userInterestRooms = [
+    { id: "r_gaming_legends", name: "Gaming Legends", topic: "Online gaming & tournaments", members: 30 },
+    { id: "r_build_in_public", name: "Build-in-Public Devs", topic: "Share progress, get feedback", members: 16 },
+  ];
+
+  const nearbyRooms = [
     { id: "r_gnv_runners", name: "GNV Runners – Evenings", topic: "Local runs & recovery", members: 18 },
     { id: "r_coffee_chats", name: "Coffee Chats – Downtown", topic: "Meetups & tastings", members: 22 },
-    { id: "r_build_in_public", name: "Build-in-Public Devs", topic: "Share progress, get feedback", members: 16 },
+  ];
+
+  const onlineRooms = [
+    { id: "r_sports_fanatics", name: "Sports Fanatics", topic: "Discussion & live streams", members: 25 },
   ];
 
   const events = [
@@ -14,55 +22,65 @@ export default function CommonsPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Commons</h1>
-        <p className="text-neutral-600">
-          Small, local rooms and nearby happenings — never more than a few dozen people.
+    <main className="min-h-screen bg-neutral-950 px-4 py-16">
+      {/* Hero */}
+      <header className="mb-12 text-center">
+        <h1 className="text-4xl font-bold tracking-tight text-neutral-100 mb-2">Welcome to the <span className="text-blue-500 font-bold">Commons</span></h1>
+        <p className="text-neutral-400 max-w-xl mx-auto text-lg">
+          Find Community <span className="text-blue-500 font-semibold">Anywhere</span> <span className="text-blue-500 font-semibold">Anytime</span>
         </p>
       </header>
 
-      {/* Rooms */}
+      {/* Based on Your Interests Section */}
       <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Suggested Rooms</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {rooms.map((r) => (
-            <article key={r.id} className="rounded-2xl border border-neutral-200 p-5">
-              <h3 className="font-medium">{r.name}</h3>
-              <p className="text-sm text-neutral-600">{r.topic}</p>
-              <p className="text-sm text-neutral-500 mt-1">{r.members} members</p>
-              <div className="mt-4 flex gap-2">
-                <button className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-1.5 text-sm text-white hover:bg-blue-700">
-                  Join
-                </button>
-                <Link
-                  href={`/rooms/${r.id}`}
-                  className="inline-flex items-center rounded-xl border border-neutral-200 px-3 py-1.5 text-sm hover:bg-neutral-50"
-                >
-                  Preview
-                </Link>
-              </div>
-            </article>
+        <h2 className="text-2xl font-semibold mb-4 text-neutral-100">Based on Your Interests</h2>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {userInterestRooms.map((r) => (
+            <Link
+              key={r.id}
+              href={`/rooms/${r.id}`}
+              className="block rounded-2xl border border-neutral-800 bg-neutral-900 p-5 hover:bg-blue-950 transition"
+            >
+              <h3 className="font-medium text-neutral-100 hover:text-blue-500">{r.name}</h3>
+              <p className="text-sm text-neutral-400">{r.topic}</p>
+              <p className="text-sm text-blue-400 mt-1">{r.members} members</p>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Events (can ignore for now) */}
-      <section>
-        <h2 className="text-xl font-semibold mb-3">Nearby Happenings</h2>
+      {/* Nearby Section */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4 text-neutral-100">Nearby</h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          {events.map((e) => (
-            <article key={e.id} className="rounded-2xl border border-neutral-200 p-5">
-              <h3 className="font-medium">{e.title}</h3>
-              <p className="text-sm text-neutral-600 mt-1">
-                {e.when} · {e.where}
-              </p>
-              <div className="mt-4">
-                <button className="inline-flex items-center rounded-xl border border-neutral-200 px-3 py-1.5 text-sm hover:bg-neutral-50">
-                  Details
-                </button>
-              </div>
-            </article>
+          {nearbyRooms.map((r) => (
+            <Link
+              key={r.id}
+              href={`/rooms/${r.id}`}
+              className="block rounded-2xl border border-neutral-800 bg-neutral-900 p-5 hover:bg-blue-950 transition"
+            >
+              <h3 className="font-medium text-neutral-100 hover:text-blue-500">{r.name}</h3>
+              <p className="text-sm text-neutral-400">{r.topic}</p>
+              <p className="text-sm text-blue-400 mt-1">{r.members} members</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* World Wide Web Section */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4 text-neutral-100">World Wide Web</h2>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {onlineRooms.map((r) => (
+            <Link
+              key={r.id}
+              href={`/rooms/${r.id}`}
+              className="block rounded-2xl border border-neutral-800 bg-neutral-900 p-5 hover:bg-blue-950 transition"
+            >
+              <h3 className="font-medium text-neutral-100 hover:text-blue-500">{r.name}</h3>
+              <p className="text-sm text-neutral-400">{r.topic}</p>
+              <p className="text-sm text-blue-400 mt-1">{r.members} members</p>
+            </Link>
           ))}
         </div>
       </section>

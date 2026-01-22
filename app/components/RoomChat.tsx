@@ -27,18 +27,18 @@ export default function RoomChat({ roomId }: { roomId: string }) {
   }
 
   return (
-    <section className="grid h-[60vh] grid-rows-[1fr_auto] rounded-2xl border border-neutral-200">
+    <section className="grid h-[60vh] grid-rows-[1fr_auto] rounded-2xl border border-neutral-800 bg-neutral-900">
       {/* messages */}
       <div className="overflow-y-auto p-3 text-sm">
         {messages.map(m => (
           <div key={m.id} className="mb-2">
             <div className="flex items-baseline gap-2">
-              <span className="font-semibold">{m.author}</span>
+              <span className="font-semibold text-neutral-100">{m.author}</span>
               <span className="text-xs text-neutral-500">
                 {new Date(m.ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </span>
             </div>
-            <p className="whitespace-pre-wrap">{m.text}</p>
+            <p className="whitespace-pre-wrap text-neutral-200">{m.text}</p>
           </div>
         ))}
         <div ref={endRef} />
@@ -46,7 +46,7 @@ export default function RoomChat({ roomId }: { roomId: string }) {
 
       {/* input */}
       <form
-        className="flex gap-2 border-t border-neutral-200 p-3"
+        className="flex gap-2 border-t border-neutral-800 p-3"
         onSubmit={(e) => { e.preventDefault(); send(input); }}
       >
         <textarea
@@ -60,11 +60,11 @@ export default function RoomChat({ roomId }: { roomId: string }) {
             }
           }}
           placeholder="Type a message…"
-          className="min-h-[44px] max-h-40 flex-1 resize-y rounded-xl border border-neutral-300 px-3 py-2 text-sm"
+          className="min-h-[44px] max-h-40 flex-1 resize-y rounded-xl border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
         <button
           type="submit"
-          className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-500 transition"
         >
           Send
         </button>
